@@ -3,3 +3,6 @@
 test*
 data/
 __pycache__/
+build/
+*.o
+*.exe

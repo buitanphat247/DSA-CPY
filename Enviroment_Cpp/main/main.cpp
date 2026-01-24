@@ -5,49 +5,30 @@ using namespace std;
 #define bl boolean
 #define str string
 #define READ(name) freopen(name".inp","r",stdin);freopen(name".out","w",stdout);
-const ll MAX_SIZE = (ll)1e6;
 
-vector<ll> prime;
-
-void SANG_NT();
 
 int main()
 {
     READ("1");
-    SANG_NT();
-    map<ll,ll> dp;
-    ll n;
-    cin>>n;
-
-    for(ll i=0;i<prime.size();i++)
+    ll n,k;
+    cin>>n>>k;
+    ll a[n],dp[n];
+    for(ll i=0;i<n;i++)
     {
-        while(n%prime[i]==0)
-        {
-            dp[prime[i]]++;
-            n/=prime[i];
-        }
-        if(n==1)break;
+        cin>>a[i];
+        dp[i]=-1000000;
     }
-    if(n>1)dp[n]++;
-    cout<<dp.size()<<endl;
+    dp[0]=a[0];
+    dp[1]=max(a[1],dp[0]+a[1]);
+    for(ll i=2;i<n;i++)
+    {
+        ll back_step= 0;
+        if(i-k<0)back_step=0;
+        else back_step=i-k;
+        for(ll j=i-1;j>=back_step;j--)
+           dp[i]=max(dp[j]+a[i],dp[i]);
+    }
     for(auto it:dp)
-        cout<<it.first<<" "<<it.second<<endl;
+        cout<<it<<" ";
 
-}
-
-void SANG_NT()
-{
-    ll limit = sqrt(MAX_SIZE);
-    vector<bool> is_prime(limit + 1, true);
-
-    is_prime[0] = is_prime[1] = false;
-
-    for (ll i = 2; i * i <= limit; i++)
-        if (is_prime[i])
-            for (ll j = i * i; j <= limit; j += i)
-                is_prime[j] = false;
-
-    for (ll i = 2; i <= limit; i++)
-        if (is_prime[i])
-            prime.push_back(i);
 }
