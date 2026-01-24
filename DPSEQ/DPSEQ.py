@@ -12,6 +12,7 @@ for i in range(1,n):
         back_step = 0
     else:
         back_step = i-k
+        
     for j in range(i-1,back_step-1,-1):
         dp_result[i] = max(dp_result[j]+dp_array[i],dp_result[i])
 
