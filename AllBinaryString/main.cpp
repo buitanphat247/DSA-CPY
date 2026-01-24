@@ -13,7 +13,7 @@ vector<string> ans;
 void solve_backtrack(ll index, string s) {
   if (index == n) {
     ans.push_back(s);
-    cout<<s<<endl;
+    cout << s << endl;
     return;
   }
   solve_backtrack(index + 1, s + "0");
@@ -21,7 +21,6 @@ void solve_backtrack(ll index, string s) {
 }
 int main() {
   READ("1");
-  cin>>n;
+  cin >> n;
   solve_backtrack(0, "");
-
 }
