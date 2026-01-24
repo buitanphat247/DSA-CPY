@@ -13,7 +13,6 @@ struct number_mode {
 };
 
 int main() {
-    READ("1");
   ll n;
   cin >> n;
   map<ll, ll> number_dict;
