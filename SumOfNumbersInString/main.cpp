@@ -9,6 +9,7 @@ using namespace std;
   freopen(name ".out", "w", stdout);
 
 int main() {
+  READ("1");
   string s;
   cin >> s;
   s += "d";
