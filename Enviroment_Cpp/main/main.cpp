@@ -5,38 +5,49 @@ using namespace std;
 #define bl boolean
 #define str string
 #define READ(name) freopen(name".inp","r",stdin);freopen(name".out","w",stdout);
+const ll MAX_SIZE = (ll)1e6;
 
-const ll max_size_array=(ll)1e3;
-ll knapsback(ll dp[max_size_array][max_size_array], ll n, ll S, ll w[]);
+vector<ll> prime;
+
+void SANG_NT();
 
 int main()
 {
     READ("1");
-    ll size_array,size_weight;
-    cin>>size_array>>size_weight;
-    ll weights[size_array+1];
+    SANG_NT();
+    map<ll,ll> dp;
+    ll n;
+    cin>>n;
 
-    for(ll i=1;i<=size_array;i++)
-        cin>>weights[i];
-    ll dp[max_size_array][max_size_array];
-    memset(dp,0,sizeof(dp));
-
-    ll results = knapsback(dp,size_array,size_weight,weights);
-
-    cout<<results<<endl;
-}
-
-ll knapsback(ll dp[max_size_array][max_size_array],ll n,ll S,ll w[])
-{
-    for(ll i=1;i<=n;i++)
+    for(ll i=0;i<prime.size();i++)
     {
-        for(ll j=1;j<=S;j++)
+        while(n%prime[i]==0)
         {
-            dp[i][j]=dp[i-1][j];
-            if(j>=w[i])
-                dp[i][j]=max(dp[i][j],dp[i-1][j-w[i]]+w[i]);
+            dp[prime[i]]++;
+            n/=prime[i];
         }
+        if(n==1)break;
     }
-    return dp[n][S];
+    if(n>1)dp[n]++;
+    cout<<dp.size()<<endl;
+    for(auto it:dp)
+        cout<<it.first<<" "<<it.second<<endl;
+
 }
 
+void SANG_NT()
+{
+    ll limit = sqrt(MAX_SIZE);
+    vector<bool> is_prime(limit + 1, true);
+
+    is_prime[0] = is_prime[1] = false;
+
+    for (ll i = 2; i * i <= limit; i++)
+        if (is_prime[i])
+            for (ll j = i * i; j <= limit; j += i)
+                is_prime[j] = false;
+
+    for (ll i = 2; i <= limit; i++)
+        if (is_prime[i])
+            prime.push_back(i);
+}
