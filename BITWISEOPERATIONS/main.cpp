@@ -1,16 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define READ(filename) freopen(filename, "r", stdin)
+#define WRITE(filename) freopen(filename, "w", stdout)
 #define ll long long
 #define ld long double
-#define bl boolean
-#define str string
-#define READ(name)                                                             \
-  freopen(name ".inp", "r", stdin);                                            \
-  freopen(name ".out", "w", stdout);
-
+#define pb push_back
+#define mp make_pair
+#define pii pair<int, int>
+#define pll pair<ll, ll>
+#define vi vector<int>
+#define vll vector<ll>
 int main() {
-  READ("1");
-  ll n;
+  READ("BITWISEOPERATIONS.INP");
+  WRITE("BITWISEOPERATIONS.OUT");
+  int n;
   cin >> n;
   while (n--) {
     uint32_t a, b;
