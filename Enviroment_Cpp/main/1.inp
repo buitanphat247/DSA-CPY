@@ -1,7 +1,2 @@
 6
-1 AND 2
-3 OR 5
-7 XOR 8
-9 NOT 8
-10 LEFT 3
-7 RIGHT 2
+1 2 5 4 6 2
