@@ -30,4 +30,5 @@ int main() {
       }
   }
  (check_solve==true)?cout<<min_len:cout<<"-1";
+ 
 }
