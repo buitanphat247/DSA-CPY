@@ -9,24 +9,23 @@ using namespace std;
   freopen(name ".out", "w", stdout);
 
 int main() {
-    READ("1");
-  ll n, k;
-  cin >> n >> k;
+  READ("1");
+  ll n, s;
+  cin >> n >> s;
   vector<ll> dp(n + 1, 0);
   for (ll i = 1; i <= n; i++) {
     ll temp;
     cin >> temp;
     (i == 1) ? dp[i] = temp : dp[i] = dp[i - 1] + temp;
   }
-  ll left, right,max_len=0;
-  left = right = 1;
-  for (right = 1; right <= n; right++) {
-    ll ans_temp=dp[right]-dp[left-1];
-    while (left <= right && ans_temp > k) {
-      max_len=max((right-1)-left+1,max_len);
+  ll left = 1, maxLen = 0;
+  for (ll right = 1; right <= n; right++) {
+    while (left <= right && dp[right] - dp[left - 1] > s) {
       left++;
-      ans_temp=dp[right]-dp[left-1];
+    }
+    if (left <= right && dp[right] - dp[left - 1] <= s) {
+      maxLen = max(maxLen, right - left + 1);
     }
   }
-  cout<<max_len<<endl;
+  cout << maxLen << endl;
 }
