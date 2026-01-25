@@ -10,7 +10,7 @@ using namespace std;
 
 int main() {
   READ("1");
-  int n,x;
+  int n;
   cin >> n >> x;
   vector<int> a(n);
   for (int i = 0; i < n; i++) {
