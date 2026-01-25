@@ -30,19 +30,18 @@ string multiple(string number1, string number2) {
     pos++;
   string ans = "";
   for (; pos < n + m; pos++)
-  ans += to_string(results[pos]);
+    ans += to_string(results[pos]);
   return ans;
 }
 
 int main() {
   READ("1");
-    ll n,m;
-    cin>>n>>m;
-    string s_n=to_string(n),ans_solve=to_string(1);
-    while(m>0)
-    {
-        ans_solve=multiple(s_n,ans_solve);
-        m--;
-    }
-    cout<<ans_solve<<endl;
+  ll n, m;
+  cin >> n >> m;
+  string s_n = to_string(n), ans_solve = to_string(1);
+  while (m > 0) {
+    ans_solve = multiple(s_n, ans_solve);
+    m--;
+  }
+  cout << ans_solve << endl;
 }
