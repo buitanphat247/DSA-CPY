@@ -8,25 +8,28 @@ using namespace std;
   freopen(name ".inp", "r", stdin);                                            \
   freopen(name ".out", "w", stdout);
 
-int main() {
+int main()
+{
     READ("1");
-  ll n, k;
-  cin >> n >> k;
-  vector<ll> dp(n + 1, 0);
-  for (ll i = 1; i <= n; i++) {
-    ll temp;
-    cin >> temp;
-    (i == 1) ? dp[i] = temp : dp[i] = dp[i - 1] + temp;
-  }
-  ll left, right,max_len=0;
-  left = right = 1;
-  for (right = 1; right <= n; right++) {
-    ll ans_temp=dp[right]-dp[left-1];
-    while (left <= right && ans_temp > k) {
-      max_len=max((right-1)-left+1,max_len);
-      left++;
-      ans_temp=dp[right]-dp[left-1];
+    ll n,m,k;
+    cin>>n>>m>>k;
+    ll a[n],b[m];
+    for(ll i=0;i<n;i++)
+        cin>>a[i];
+    for(ll j=0;j<m;j++)
+        cin>>b[j];
+    sort(a,a+n);
+    sort(b,b+n);
+    ll j=0,cnt=0;
+    for(ll i=0;i<n;i++)
+    {
+        while(j<m && b[j]<a[i]-k)
+            j++;
+        if(j<m && b[j]<=a[i]+k)
+        {
+            cnt+=1;
+            j++;
+        }
     }
-  }
-  cout<<max_len<<endl;
+    cout<<cnt<<endl;
 }
