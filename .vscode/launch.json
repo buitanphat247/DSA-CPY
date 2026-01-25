@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/media/buitanphat/Document/Workspace/Python-Exercise/LCS",
-      "program": "/media/buitanphat/Document/Workspace/Python-Exercise/LCS/build/Debug/outDebug",
+      "cwd": "/media/buitanphat/Document/Workspace/Python-Exercise/Enviroment_Cpp/main",
+      "program": "/media/buitanphat/Document/Workspace/Python-Exercise/Enviroment_Cpp/main/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
