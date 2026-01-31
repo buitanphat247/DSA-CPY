@@ -15,7 +15,10 @@ void show_matrix(ll n, ll m, vector<vector<ll>> &a);
 void handle(ll n, ll m, vector<vector<ll>> &a, sub_node &s);
 void show_sub_node(sub_node &s);
 int main() {
-    READ("1");
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+  cout.tie(NULL);
+  READ("1");
   ll n, m;
   cin >> n >> m;
   vector<vector<ll>> v(n + 2, vector<ll>(m + 2, (ll)-1e18));
