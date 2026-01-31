@@ -9,6 +9,7 @@ using namespace std;
   freopen(name ".out", "w", stdout);
 const ll nmax = 1e3;
 
+const ll nmax = 1e3;
 void create_matrix(vector<vector<ll>> &matrix, vector<vector<ll>> &dp,
                    const ll &n);
 void handle_matrix(const vector<vector<ll>> &matrix, vector<vector<ll>> &dp,
