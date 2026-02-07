@@ -12,10 +12,10 @@ int main() {
   cin >> n;
   ll number_nine = n / 9;
   ll temp = n % 9;
-    if(temp!=0)
-          cout<<temp;
-  while(number_nine--)
-    cout<<9;
+  if (temp != 0)
+    cout << temp;
+  while (number_nine--)
+    cout << 9;
 
   return 0;
 }

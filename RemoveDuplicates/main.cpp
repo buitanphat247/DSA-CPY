@@ -1,9 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-#define ld long double
-#define bl boolean
-#define str string
+#define pb push_back
 #define READ(name)                                                             \
   freopen(name ".inp", "r", stdin);                                            \
   freopen(name ".out", "w", stdout);
@@ -12,17 +10,18 @@ int main() {
   READ("1");
   ll n;
   cin >> n;
-  vector<ll> x(n);
+  vector<ll> s(n);
   for (ll i = 0; i < n; i++)
-    cin >> x[i];
+    cin >> s[i];
 
-  vector<ll> dp(n, 1);
-  for (ll i = 1; i < n; i++) {
-    for (ll j = 0; j < i; j++) {
-      if (x[i] > x[j]) {
-        dp[i] = max(dp[i], dp[j] + 1);
-      }
+  set<ll> seen;
+  string result = "";
+  for (int i = 0; i < n; i++) {
+    if (seen.find(s[i]) == seen.end()) {
+      seen.insert(s[i]);
+      result += to_string(s[i]) + " ";
     }
   }
-  cout << *max_element(dp.begin(), dp.end()) << endl;
+  cout << result << endl;
+  return 0;
 }

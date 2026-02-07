@@ -1,21 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-#define nmax 1e6 + 5
+#define pb push_back
 #define READ(name)                                                             \
   freopen(name ".inp", "r", stdin);                                            \
   freopen(name ".out", "w", stdout);
+
+string toBinary(ll n) {
+  if (n == 0)
+    return "0";
+  string binary = "";
+  while (n > 0) {
+    binary = to_string(n % 2) + binary;
+    n /= 2;
+  }
+  return binary;
+}
 
 int main() {
   READ("1");
   ll n;
   cin >> n;
-  ll number_nine = n / 9;
-  ll temp = n % 9;
-    if(temp!=0)
-          cout<<temp;
-  while(number_nine--)
-    cout<<9;
-
+  for (ll i = 1; i <= n; i++) {
+    cout << toBinary(i) << endl;
+  }
   return 0;
 }
